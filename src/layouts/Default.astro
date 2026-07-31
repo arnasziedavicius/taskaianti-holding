@@ -1,0 +1,24 @@
+---
+import Seo from '../components/Seo.astro'
+// import Favicon from '../components/Favicon.astro'
+import '../styles/normalize.css'
+import '../styles/global.css'
+
+const {title, url, description} = Astro.props
+---
+
+<html lang="lt">
+  <head>
+    <title>{title}</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 viewport-fit=cover" />
+    <meta name="format-detection" content="#ffffff" />
+    <meta name="generator" content={Astro.generator} />
+    <Seo title={title} url={url} description={description} />
+    <!-- <Favicon /> -->
+  </head>
+
+  <body>
+    <slot />
+  </body>
+</html>

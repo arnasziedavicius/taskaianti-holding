@@ -1,0 +1,8 @@
+---
+const {title, url, description} = Astro.props
+---
+
+<meta name="og:title" content={title} />
+<meta name="og:description" content={description} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={url} />
