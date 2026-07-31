@@ -182,7 +182,7 @@ a,
 button {
   text-decoration-line: underline;
   text-underline-offset: 0.2rem;
-  text-decoration-thickness: 0.2rem;
+  text-decoration-thickness: 0.05em;
   transition: text-decoration-color var(--transition-duration);
 }
 
