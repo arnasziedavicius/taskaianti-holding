@@ -1,0 +1,33 @@
+---
+import ModulesText from './Text.astro'
+import ModulesImage from './Image.astro'
+import ModulesList from './List.astro'
+
+interface Module {
+  _type: string
+  _key?: string
+  [key: string]: unknown
+}
+
+interface Props {
+  modules: Module[]
+}
+
+const { modules } = Astro.props
+
+const moduleComponents: Record<string, any> = {
+  'module.text': ModulesText,
+  'module.image': ModulesImage,
+  'module.list': ModulesList,
+}
+---
+
+<div class="Modules">
+  {modules.map((module) => {
+    const Component = moduleComponents[module._type]
+    if (!Component) return null
+
+    const { _type, ...props } = module
+    return <Component {...props} />
+  })}
+</div>

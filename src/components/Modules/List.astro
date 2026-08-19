@@ -1,0 +1,38 @@
+---
+const {heading, list} = Astro.props
+---
+
+<div class="ModulesList wrap ma-b-xl">
+  <div class="ModulesList__heading-wrap col ma-b ta-c">
+    <h2 class="ModulesList__heading tt-u">{heading}</h2>
+  </div>
+
+  {list.map((item: any) => {
+    return <div
+      class:list={[
+        'ModulesList__item',
+        'flex',
+        'flex-wrap',
+        'ma-b',
+        'col-center',
+        { 'col-10': item.title },
+        { 'ta-c': !item.title },
+      ]}
+    >
+      {item.title && (
+        <div class="ModulesList__item-title col col-4">
+          {item.title}
+        </div>
+      )}
+
+      <div class:list={[
+        'ModulesList__item-text',
+        'col',
+        'col-8',
+        { 'col-center': !item.title },
+      ]}>
+        {item.text}
+      </div>
+    </div>
+  })}
+</div>

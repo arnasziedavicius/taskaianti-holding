@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: 'WorkSans';
-  src: url('/fonts/WorkSans-Light.ttf') format('truetype');
+  src: url('/fonts/WorkSans-Regular.ttf') format('truetype');
   font-style: normal;
   font-weight: normal;
 }
@@ -11,17 +11,29 @@
 
 :root {
   --window-height: 100vh;
+
   --font-family: 'WorkSans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
   --font-size-sm: 1.7rem;
   --font-size: 3rem;
   --line-height: 1.2;
   --line-height-rem-sm: 2.04rem;
   --line-height-rem: 3.6rem;
+
+  --font-size-l-sm: 1.7rem;
+  --font-size-l: 3.6rem;
+  --line-height-l: 1.2;
+  --line-height-rem-l-sm: 2.04rem;
+  --line-height-rem-l: 4.32rem;
+
   --transition-duration: 0.3s;
   --transition-ease: cubic-bezier(0.2, 0.06, 0.05, 0.95);
+
   --color-primary: #000000;
   --color-secondary: #ffffff;
+
   --layout-offset: 1.5rem;
+  --layout-gutter: 1.5rem;
 }
 
 /* Global */
@@ -158,24 +170,28 @@ strong {
 
 /* Typography */
 
+.tt-u {
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.ta-c {
+  text-align: center;
+}
+
 .fs-s {
   font-size: 1.3rem;
+}
+
+.fs-l {
+  font-size: var(--font-size-l);
+  line-height: var(--line-height-l);
 }
 
 @media only screen and (min-width: 992px) {
   .fs-s {
     font-size: 1.9rem;
   }
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: normal;
-  font-size: inherit;
 }
 
 a,
@@ -351,6 +367,11 @@ button.active {
 /* Wrap */
 
 .wrap {
+  padding-left: calc(var(--layout-offset) - (var(--layout-gutter) / 2));
+  padding-right: calc(var(--layout-offset) - (var(--layout-gutter) / 2));
+}
+
+.wrap-full {
   padding-left: var(--layout-offset);
   padding-right: var(--layout-offset);
 }
@@ -361,8 +382,58 @@ button.active {
   display: flex;
 }
 
-.flex-col {
-  flex-direction: column;
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+/* Columns */
+
+.col {
+  width: 100%;
+  padding-left: calc(var(--layout-gutter) / 2);
+  padding-right: calc(var(--layout-gutter) / 2);
+}
+
+.col-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.col-12 {
+  width: 100%;
+}
+.col-11 {
+  width: 91.666%;
+}
+.col-10 {
+  width: 83.333%;
+}
+.col-9 {
+  width: 75%;
+}
+.col-8 {
+  width: 66.666%;
+}
+.col-7 {
+  width: 58.333%;
+}
+.col-6 {
+  width: 50%;
+}
+.col-5 {
+  width: 41.666%;
+}
+.col-4 {
+  width: 33.333%;
+}
+.col-3 {
+  width: 25%;
+}
+.col-2 {
+  width: 16.666%;
+}
+.col-1 {
+  width: 8.333%;
 }
 
 /* Page */

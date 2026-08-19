@@ -1,0 +1,51 @@
+---
+import {createImageUrlBuilder} from '@sanity/image-url'
+import type {ImageUrlBuilder} from '@sanity/image-url'
+import {sanityClient} from 'sanity:client'
+
+const builder = createImageUrlBuilder(sanityClient)
+
+const {class: className} = Astro.props
+const {node} = Astro.props
+const {width = 1920} = Astro.props
+const {widthMobile = 960} = Astro.props
+
+let image: ImageUrlBuilder | undefined
+let imageMobile: ImageUrlBuilder | undefined
+
+// See https://www.sanity.io/docs/presenting-images for general documentation on
+// presenting images, and https://www.sanity.io/docs/image-url for specifics on
+// this builder API
+try {
+  image = node && node.asset && builder.image(node).width(width).fit('max').auto('format')
+} catch (error) {
+  console.error(error)
+}
+
+try {
+  imageMobile =
+    node && node.asset && builder.image(node).width(widthMobile).fit('max').auto('format')
+} catch (error) {
+  console.error(error)
+}
+---
+
+<style>
+  .BaseImage {
+    width: 100%;
+    height: auto;
+  }
+</style>
+
+{
+  image && (
+    <img
+      srcset={`${imageMobile?.url()} ${widthMobile}w, ${image?.url()} ${width}w`}
+      sizes={`(min-width: 992px) ${width}px, 100vw`}
+      alt={node.alt || ''}
+      title={node.alt}
+      loading="lazy"
+      class:list={['BaseImage', className]}
+    />
+  )
+}
