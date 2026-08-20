@@ -2,24 +2,56 @@
 const {items} = Astro.props
 ---
 <style>
-  .Navigation {
-    position: sticky;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding-top: var(--layout-offset);
-  }
+.Navigation {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-top: var(--layout-offset);
+  z-index: 10;
+  transition: opacity var(--transition-duration) var(--transition-ease);
+}
 
-  .Navigation__link {
-    margin-right: 1rem;
-    margin-left: 1rem;
-  }
+.Navigation.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.Navigation__link {
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
 </style>
 
-<nav class="Navigation wrap-full fs-s tt-u ta-c">
+<nav class="Navigation wrap-full fs-s tt-u ta-c" data-navigation>
   {items.map((item: any) => (
     <a href={item.slug?.current ? `#${item.slug.current}` : undefined} class="Navigation__link cta">
       {item.title}
     </a>
   ))}
 </nav>
+
+<script>
+  const nav = document.querySelector('[data-navigation]')
+  const logo = document.querySelector('.PageHome__logo-wrap')
+
+  if (nav) {
+    let lastY = window.scrollY
+
+    const update = () => {
+      const y = window.scrollY
+      const pastLogo = logo ? logo.getBoundingClientRect().bottom <= 0 : y > 0
+
+      if (!pastLogo || y <= lastY) {
+        nav.classList.remove('is-hidden')
+      } else {
+        nav.classList.add('is-hidden')
+      }
+
+      lastY = y
+    }
+
+    window.addEventListener('scroll', update, { passive: true })
+    update()
+  }
+</script>
