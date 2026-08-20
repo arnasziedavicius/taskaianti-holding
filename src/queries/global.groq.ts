@@ -9,6 +9,11 @@ export default `{
     },
   },
   "home": *[_type == "home"][0] {
+    "navigation": modules[]{
+      _key,
+      heading,
+      slug,
+    },
     introText[]{${bodyQuery}},
     modules[]{
       ...,

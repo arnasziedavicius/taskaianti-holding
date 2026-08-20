@@ -1,0 +1,25 @@
+---
+const {items} = Astro.props
+---
+<style>
+  .Navigation {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-top: var(--layout-offset);
+  }
+
+  .Navigation__link {
+    margin-right: 1rem;
+    margin-left: 1rem;
+  }
+</style>
+
+<nav class="Navigation wrap-full fs-s tt-u ta-c">
+  {items.map((item: any) => (
+    <a href={item.slug?.current ? `#${item.slug.current}` : undefined} class="Navigation__link cta">
+      {item.heading}
+    </a>
+  ))}
+</nav>

@@ -26,12 +26,32 @@ const moduleComponents: Record<string, any> = {
 }
 ---
 
+<style>
+  .Modules__module {
+    scroll-margin-top: calc(var(--line-height-rem-sm) * 4);
+  }
+
+  @media only screen and (min-width: 992px) {
+    .Modules__module {
+      scroll-margin-top: calc(var(--line-height-rem) * 4);
+    }
+  }
+</style>
+
 <div class="Modules ma-b-xxxl">
   {modules.map((module) => {
     const Component = moduleComponents[module._type]
     if (!Component) return null
 
-    const { _type, ...props } = module
-    return <Component {...props} />
+    const { _type, slug, ...props } = module
+    const id = typeof slug === 'object' && slug && 'current' in slug
+      ? (slug as { current?: string }).current
+      : undefined
+
+    return (
+      <div id={id} class="Modules__module">
+        <Component {...props} />
+      </div>
+    )
   })}
 </div>

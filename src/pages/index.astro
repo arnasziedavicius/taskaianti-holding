@@ -2,6 +2,7 @@
 import { sanityClient } from "sanity:client";
 import query from '../queries/global.groq';
 import DefaultLayout from '../layouts/Default.astro';
+import Navigation from '../components/Navigation.astro';
 import BaseContent from '../components/Base/Content.astro';
 import Modules from '../components/Modules/Modules.astro';
 import Footer from '../components/Footer.astro';
@@ -13,7 +14,13 @@ const { settings, home } = data;
 ---
 <style>
 .PageHome {
-  width: 100%;
+  padding-top: calc(var(--line-height-rem-sm) * 4);
+}
+
+@media only screen and (min-width: 992px) {
+  .PageHome {
+    padding-top: calc(var(--line-height-rem) * 4);
+  }
 }
 </style>
 
@@ -22,7 +29,9 @@ const { settings, home } = data;
   url={url}
   seo={settings?.seo}
 >
-  <div class="PageHome pa-t-xl">
+  <Navigation items={home?.navigation ?? []} />
+
+  <div class="PageHome pa-t-xxxxxl">
     <div class="PageHome__intro-text wrap ma-b-xxl ta-c">
       <div class="col col-9 col-center fs-l">
         <BaseContent value={home?.introText} />

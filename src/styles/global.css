@@ -59,6 +59,7 @@ body {
 html {
   overscroll-behavior-x: none;
   scroll-snap-type: none;
+  scroll-behavior: smooth;
   font-size: 2.666vw;
 }
 
@@ -206,19 +207,20 @@ strong {
   }
 }
 
-a,
-button {
+a.cta,
+button.cta {
   text-decoration-line: underline;
-  text-underline-offset: 0.2rem;
+  text-underline-offset: 0.18em;
   text-decoration-thickness: 0.05em;
+  text-decoration-color: transparent;
   transition: text-decoration-color var(--transition-duration);
 }
 
-a:hover,
-a.active,
-button:hover,
-button.active {
-  text-decoration-color: transparent;
+a.cta:hover,
+a.cta.active,
+button.cta:hover,
+button.cta.active {
+  text-decoration-color: inherit;
 }
 
 @media only screen and (min-width: 992px) {
