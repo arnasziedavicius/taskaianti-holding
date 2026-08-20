@@ -1,0 +1,18 @@
+---
+import type {MarkProps} from 'astro-portabletext/types'
+
+type MarkDef = {
+  url?: string
+  filename?: string
+}
+
+export type Props = MarkProps<MarkDef>
+
+const {node} = Astro.props
+const href = node.markDef?.url ?? '#'
+const filename = node.markDef?.filename
+---
+
+<a href={href} class="cta" download={filename || true}>
+  <slot />
+</a>

@@ -41,6 +41,11 @@ export const bodyQuery = `
 		_type == "annotationLinkExternal" => {
 			${linkExternalQuery}
 		},
+		_type == "annotationLinkDownload" => {
+			_key,
+			"url": file.asset->url,
+			"filename": file.asset->originalFilename,
+		},
 	},
 	links[]{
 		${linkQuery}

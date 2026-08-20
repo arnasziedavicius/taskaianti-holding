@@ -1,0 +1,23 @@
+---
+import type {MarkProps} from 'astro-portabletext/types'
+
+type MarkDef = {
+  url?: string
+  newWindow?: boolean
+}
+
+export type Props = MarkProps<MarkDef>
+
+const {node} = Astro.props
+const href = node.markDef?.url ?? '#'
+const newWindow = node.markDef?.newWindow
+---
+
+<a
+  href={href}
+  class="cta"
+  target={newWindow ? '_blank' : undefined}
+  rel={newWindow ? 'noopener noreferrer' : undefined}
+>
+  <slot />
+</a>
