@@ -1,5 +1,5 @@
 ---
-const {heading, list} = Astro.props
+const {title, heading, list} = Astro.props
 ---
 <style>
   .ModulesList__item-text {
@@ -9,7 +9,7 @@ const {heading, list} = Astro.props
 
 <div class="ModulesList wrap ma-b-xxl">
   <div class="ModulesList__heading-wrap col ma-b ta-c">
-    <h2 class="ModulesList__heading tt-u">{heading}</h2>
+    <h2 class="tt-u">{heading || title}</h2>
   </div>
 
   {list.map((item: any) => {

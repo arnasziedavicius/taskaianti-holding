@@ -19,7 +19,7 @@ const {items} = Astro.props
 <nav class="Navigation wrap-full fs-s tt-u ta-c">
   {items.map((item: any) => (
     <a href={item.slug?.current ? `#${item.slug.current}` : undefined} class="Navigation__link cta">
-      {item.heading}
+      {item.title}
     </a>
   ))}
 </nav>
