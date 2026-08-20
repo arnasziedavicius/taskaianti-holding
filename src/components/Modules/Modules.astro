@@ -2,6 +2,8 @@
 import ModulesText from './Text.astro'
 import ModulesImage from './Image.astro'
 import ModulesList from './List.astro'
+import ModulesVolunteers from './Volunteers.astro'
+import ModulesPartners from './Partners.astro'
 
 interface Module {
   _type: string
@@ -19,10 +21,12 @@ const moduleComponents: Record<string, any> = {
   'module.text': ModulesText,
   'module.image': ModulesImage,
   'module.list': ModulesList,
+  'module.volunteers': ModulesVolunteers,
+  'module.partners': ModulesPartners,
 }
 ---
 
-<div class="Modules">
+<div class="Modules ma-b-xxxl">
   {modules.map((module) => {
     const Component = moduleComponents[module._type]
     if (!Component) return null

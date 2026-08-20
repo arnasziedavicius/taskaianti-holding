@@ -14,6 +14,18 @@
 
   --font-family: 'WorkSans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
+  --font-size-xs-sm: 1.7rem;
+  --font-size-xs: 1.7rem;
+  --line-height-xs: 1.2;
+  --line-height-rem-xs-sm: 2.04rem;
+  --line-height-rem-xs: 2.04rem;
+
+  --font-size-s-sm: 1.7rem;
+  --font-size-s: 2rem;
+  --line-height-s: 1.2;
+  --line-height-rem-s-sm: 2.04rem;
+  --line-height-rem-s: 2.4rem;
+
   --font-size-sm: 1.7rem;
   --font-size: 3rem;
   --line-height: 1.2;
@@ -32,8 +44,8 @@
   --color-primary: #000000;
   --color-secondary: #ffffff;
 
-  --layout-offset: 1.5rem;
-  --layout-gutter: 1.5rem;
+  --layout-offset: 3rem;
+  --layout-gutter: 2rem;
 }
 
 /* Global */
@@ -218,6 +230,10 @@ button.active {
 
 /* Text */
 
+.text {
+  text-wrap: pretty;
+}
+
 .text h1,
 .text h2,
 .text h3,
@@ -236,6 +252,48 @@ button.active {
   margin-bottom: 0;
 }
 
+.fs-xs.text h1,
+.fs-xs .text h1,
+.fs-xs.text h2,
+.fs-xs .text h2,
+.fs-xs.text h3,
+.fs-xs .text h3,
+.fs-xs.text p,
+.fs-xs .text p,
+.fs-xs.text ul,
+.fs-xs .text ul,
+.fs-xs.text ol {
+  margin-bottom: var(--line-height-rem-xs-sm);
+}
+
+.fs-s.text h1,
+.fs-s .text h1,
+.fs-s.text h2,
+.fs-s .text h2,
+.fs-s.text h3,
+.fs-s .text h3,
+.fs-s.text p,
+.fs-s .text p,
+.fs-s.text ul,
+.fs-s .text ul,
+.fs-s.text ol {
+  margin-bottom: var(--line-height-rem-s-sm);
+}
+
+.fs-l.text h1,
+.fs-l .text h1,
+.fs-s.text h2,
+.fs-l .text h2,
+.fs-l .text h3,
+.fs-l .text h3,
+.fs-l .text p,
+.fs-l .text p,
+.fs-l.text ul,
+.fs-l .text ul,
+.fs-l.text ol {
+  margin-bottom: var(--line-height-rem-l-sm);
+}
+
 @media only screen and (min-width: 992px) {
   .text h1,
   .text h2,
@@ -244,6 +302,48 @@ button.active {
   .text ul,
   .text ol {
     margin-bottom: var(--line-height-rem);
+  }
+
+  .fs-xs.text h1,
+  .fs-xs .text h1,
+  .fs-xs.text h2,
+  .fs-xs .text h2,
+  .fs-xs.text h3,
+  .fs-xs .text h3,
+  .fs-xs.text p,
+  .fs-xs .text p,
+  .fs-xs.text ul,
+  .fs-xs .text ul,
+  .fs-xs.text ol {
+    margin-bottom: var(--line-height-rem-xs);
+  }
+
+  .fs-s.text h1,
+  .fs-s .text h1,
+  .fs-s.text h2,
+  .fs-s .text h2,
+  .fs-s.text h3,
+  .fs-s .text h3,
+  .fs-s.text p,
+  .fs-s .text p,
+  .fs-s.text ul,
+  .fs-s .text ul,
+  .fs-s.text ol {
+    margin-bottom: var(--line-height-rem-s);
+  }
+
+  .fs-l.text h1,
+  .fs-l .text h1,
+  .fs-l.text h2,
+  .fs-l .text h2,
+  .fs-l.text h3,
+  .fs-l .text h3,
+  .fs-l.text p,
+  .fs-l .text p,
+  .fs-l.text ul,
+  .fs-l .text ul,
+  .fs-l.text ol {
+    margin-bottom: var(--line-height-rem-l);
   }
 
   .text h1:last-child,
@@ -309,6 +409,14 @@ button.active {
   margin-bottom: calc(var(--line-height-rem-sm) * 3);
 }
 
+.ma-b-xxl {
+  margin-bottom: calc(var(--line-height-rem-sm) * 4);
+}
+
+.ma-b-xxxl {
+  margin-bottom: calc(var(--line-height-rem-sm) * 6);
+}
+
 @media only screen and (min-width: 992px) {
   .ma-b {
     margin-bottom: var(--line-height-rem);
@@ -321,28 +429,13 @@ button.active {
   .ma-b-xl {
     margin-bottom: calc(var(--line-height-rem) * 3);
   }
-}
 
-@media only screen and (min-width: 992px) {
-  .col-md-11 {
-    width: 91.666%;
+  .ma-b-xxl {
+    margin-bottom: calc(var(--line-height-rem) * 4);
   }
 
-  .col-md-9 {
-    width: 75%;
-  }
-
-  .col-md-8 {
-    width: 66.666%;
-  }
-
-  .col-md-7 {
-    width: 58.333%;
-  }
-
-  .col-center {
-    margin-left: auto;
-    margin-right: auto;
+  .ma-b-xxxl {
+    margin-bottom: calc(var(--line-height-rem) * 6);
   }
 }
 
@@ -411,6 +504,9 @@ button.active {
 .col-9 {
   width: 75%;
 }
+.col-8-half {
+  width: 70.833%;
+}
 .col-8 {
   width: 66.666%;
 }
@@ -426,6 +522,9 @@ button.active {
 .col-4 {
   width: 33.333%;
 }
+.col-3-half {
+  width: 29.166%;
+}
 .col-3 {
   width: 25%;
 }
@@ -434,6 +533,21 @@ button.active {
 }
 .col-1 {
   width: 8.333%;
+}
+
+@media only screen and (min-width: 992px) {
+  .col-md-11 {
+    width: 91.666%;
+  }
+  .col-md-9 {
+    width: 75%;
+  }
+  .col-md-8 {
+    width: 66.666%;
+  }
+  .col-md-7 {
+    width: 58.333%;
+  }
 }
 
 /* Page */

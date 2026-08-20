@@ -4,6 +4,7 @@ import query from '../queries/global.groq';
 import DefaultLayout from '../layouts/Default.astro';
 import BaseContent from '../components/Base/Content.astro';
 import Modules from '../components/Modules/Modules.astro';
+import Footer from '../components/Footer.astro';
 
 const url = import.meta.env.APP_URL;
 
@@ -22,7 +23,7 @@ const { settings, home } = data;
   seo={settings?.seo}
 >
   <div class="PageHome pa-t-xl">
-    <div class="PageHome__intro-text wrap ma-b-xl ta-c">
+    <div class="PageHome__intro-text wrap ma-b-xxl ta-c">
       <div class="col col-9 col-center fs-l">
         <BaseContent value={home?.introText} />
       </div>
@@ -30,6 +31,8 @@ const { settings, home } = data;
 
     <Modules modules={home?.modules ?? []} />
   </div>
+
+  <Footer />
 </DefaultLayout>
 
 <script>

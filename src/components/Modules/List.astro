@@ -1,8 +1,13 @@
 ---
 const {heading, list} = Astro.props
 ---
+<style>
+  .ModulesList__item-text {
+    text-wrap: pretty;
+  }
+</style>
 
-<div class="ModulesList wrap ma-b-xl">
+<div class="ModulesList wrap ma-b-xxl">
   <div class="ModulesList__heading-wrap col ma-b ta-c">
     <h2 class="ModulesList__heading tt-u">{heading}</h2>
   </div>
@@ -20,7 +25,7 @@ const {heading, list} = Astro.props
       ]}
     >
       {item.title && (
-        <div class="ModulesList__item-title col col-4">
+        <div class="ModulesList__item-title col col-3-half">
           {item.title}
         </div>
       )}
@@ -28,7 +33,8 @@ const {heading, list} = Astro.props
       <div class:list={[
         'ModulesList__item-text',
         'col',
-        'col-8',
+        { 'col-8-half': item.title },
+        { 'col-8': !item.title },
         { 'col-center': !item.title },
       ]}>
         {item.text}
