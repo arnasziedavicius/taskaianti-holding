@@ -9,11 +9,12 @@ const {items} = Astro.props
   width: 100%;
   padding-top: var(--layout-offset);
   z-index: 10;
-  transition: opacity var(--transition-duration) var(--transition-ease);
+  transition: opacity var(--transition-duration) var(--transition-ease), transform var(--transition-duration) var(--transition-ease);
 }
 
 .Navigation.is-hidden {
   opacity: 0;
+  transform: translateY(-100%);
   pointer-events: none;
 }
 
