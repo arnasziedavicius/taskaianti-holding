@@ -2,6 +2,7 @@
 import { sanityClient } from "sanity:client";
 import query from '../queries/global.groq';
 import DefaultLayout from '../layouts/Default.astro';
+import Logo from '../components/Logo.astro';
 import Navigation from '../components/Navigation.astro';
 import BaseContent from '../components/Base/Content.astro';
 import Modules from '../components/Modules/Modules.astro';
@@ -13,6 +14,11 @@ const data = await sanityClient.fetch(query);
 const { settings, home } = data;
 ---
 <style>
+.PageHome__logo-wrap {
+  padding-top: var(--layout-offset);
+  margin-bottom: calc(var(--line-height-rem) - var(--layout-offset));
+}
+
 .PageHome {
   padding-top: calc(var(--line-height-rem-sm) * 4);
 }
@@ -29,6 +35,9 @@ const { settings, home } = data;
   url={url}
   seo={settings?.seo}
 >
+  <div class="PageHome__logo-wrap flex flex-justify-center wrap-full ma-b">
+    <Logo title={settings?.title} />
+  </div>
   <Navigation items={home?.navigation ?? []} />
 
   <div class="PageHome pa-t-xxxxxl">
