@@ -5,7 +5,7 @@ import AnnotationLinkExternal from './marks/AnnotationLinkExternal.astro'
 import AnnotationLinkDownload from './marks/AnnotationLinkDownload.astro'
 import DecoratorHighlight from './marks/DecoratorHighlight.astro'
 
-const {value} = Astro.props
+const {value, class: className} = Astro.props
 
 const components = {
   mark: {
@@ -17,6 +17,6 @@ const components = {
 }
 ---
 
-<div class="BaseContent text">
+<div class:list={['BaseContent', 'text', className]}>
   <PortableText value={value} components={components} />
 </div>
