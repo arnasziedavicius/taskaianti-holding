@@ -14,10 +14,10 @@
 
   --font-family: 'WorkSans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
-  --font-size-xxs-sm: 1.7rem;
+  --font-size-xxs-sm: 1.1rem;
   --font-size-xxs: 1.4rem;
   --line-height-xxs: 1.2;
-  --line-height-rem-xxs-sm: 2.04rem;
+  --line-height-rem-xxs-sm: 1.32rem;
   --line-height-rem-xxs: 2.04rem;
 
   --font-size-xs-sm: 1.7rem;
@@ -38,16 +38,16 @@
   --line-height-rem-sm: 2.04rem;
   --line-height-rem: 3.6rem;
 
-  --font-size-l-sm: 1.7rem;
+  --font-size-l-sm: 2rem;
   --font-size-l: 3.6rem;
   --line-height-l: 1.2;
-  --line-height-rem-l-sm: 2.04rem;
+  --line-height-rem-l-sm: 2.4rem;
   --line-height-rem-l: 4.32rem;
 
-  --font-size-xl-sm: 1.7rem;
+  --font-size-xl-sm: 2.4rem;
   --font-size-xl: 4.2rem;
   --line-height-xl: 1.2;
-  --line-height-rem-xl-sm: 2.04rem;
+  --line-height-rem-xl-sm: 2.88rem;
   --line-height-rem-xl: 5.04rem;
 
   --transition-duration: 0.2s;
@@ -476,6 +476,11 @@ button.cta.active {
 
 .ma-b {
   margin-bottom: var(--line-height-rem-sm);
+}
+
+.fs-xs.ma-b,
+.fs-xs .ma-b {
+  margin-bottom: var(--line-height-rem-xs-sm);
 }
 
 .ma-b-l {
