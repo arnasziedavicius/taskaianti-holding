@@ -1,5 +1,4 @@
 ---
-
 ---
 <style>
 .Footer {
@@ -7,14 +6,55 @@
   background-color: var(--color-grey);
   padding-top: var(--line-height-rem);
 }
+
+.Footer__col {
+  width: auto;
+  margin-right: 2rem;
+}
+
+.Footer__col:last-child {
+  margin-right: 0;
+}
+
+.Footer__logo-link {
+  display: block;
+  /* width: 14.24rem; */
+  width: 17.8rem;
+}
+
+.Footer__logo-icon {
+  width: 100%;
+  height: auto;
+}
+
+.Footer__logo-icon path {
+  stroke: var(--color-primary);
+}
 </style>
 
-<div class="Footer wrap flex flex-wrap fs-s">
-  <div class="col col-4 ma-b">
-    Taskai ant i
+<div class="Footer wrap">
+  <div class="col ma-b-xxl">
+    <a href="/" class="Footer__logo-link">
+      <svg width="182" height="45" viewBox="0 0 182 45" fill="none" xmlns="http://www.w3.org/2000/svg" class="Footer__logo-icon">
+        <path d="M137.42 22.37C137.42 9.63999 146.56 0.499986 158.97 0.499987C171.38 0.499988 180.51 9.63999 180.51 22.37C180.51 35.1 171.37 44.24 158.97 44.24C146.57 44.24 137.42 35.1 137.42 22.37Z" stroke-miterlimit="10"/>
+        <path d="M94.33 44.24C101.11 44.24 106.9 41.5 110.77 36.95C114.64 41.5 120.43 44.24 127.21 44.24C139.61 44.24 148.75 35.1 148.75 22.37C148.75 9.63999 139.61 0.499988 127.21 0.499987C120.43 0.499986 114.64 3.23999 110.77 7.78999C106.9 3.23999 101.11 0.499984 94.33 0.499984C81.93 0.499983 72.78 9.63998 72.78 22.37C72.78 35.1 81.93 44.24 94.33 44.24Z" stroke-miterlimit="10"/>
+        <path d="M37.75 22.37C37.75 9.63999 46.89 0.499986 59.3 0.499987C71.71 0.499988 80.84 9.63999 80.84 22.37C80.84 35.1 71.7 44.24 59.3 44.24C46.9 44.24 37.75 35.1 37.75 22.37Z" stroke-miterlimit="10"/>
+        <path d="M0.509981 22.37C0.509982 9.63999 9.64999 0.499986 22.06 0.499987C34.47 0.499988 43.6 9.63999 43.6 22.37C43.6 35.1 34.45 44.24 22.05 44.24C9.64997 44.24 0.499986 35.1 0.499987 22.37L0.509981 22.37Z" fill="var(--color-primary)" stroke-miterlimit="10"/>
+      </svg>
+    </a>
   </div>
 
-  <div class="col col-4 ma-b">
-    taskaianti@taskaianti.lt
+  <div class="flex fs-xxs">
+    <div class="Footer__col col ma-b">
+      &copy; Viešoji įstaiga „Informacinės erdvės ekspertų iniciatyva“
+    </div>
+
+    <div class="Footer__col col ma-b">
+      Juridinio asmens kodas: 308009214
+    </div>
+
+    <div class="Footer__col col ma-b">
+      taskaianti@taskaianti.lt
+    </div>
   </div>
 </div>

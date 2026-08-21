@@ -14,6 +14,12 @@
 
   --font-family: 'WorkSans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
+  --font-size-xxs-sm: 1.7rem;
+  --font-size-xxs: 1.4rem;
+  --line-height-xxs: 1.2;
+  --line-height-rem-xxs-sm: 2.04rem;
+  --line-height-rem-xxs: 2.04rem;
+
   --font-size-xs-sm: 1.7rem;
   --font-size-xs: 1.7rem;
   --line-height-xs: 1.2;
@@ -206,8 +212,19 @@ strong {
   color: var(--color-green);
 }
 
+.fs-xxs {
+  font-size: var(--font-size-xxs);
+  line-height: var(--line-height-xxs);
+}
+
+.fs-xs {
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+}
+
 .fs-s {
-  font-size: 1.3rem;
+  font-size: var(--font-size-s);
+  line-height: var(--line-height-s);
 }
 
 .fs-l {
