@@ -60,7 +60,9 @@
   --color-green: #7d7547;
   --color-blue: #009eb4;
 
+  --layout-offset-sm: 2rem;
   --layout-offset: 3rem;
+  --layout-gutter-sm: 1.3rem;
   --layout-gutter: 2rem;
 }
 
@@ -97,13 +99,14 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   font-size: var(--font-size-sm);
-  line-height: var(--line-height);
+  line-height: var(--line-height-sm);
   color: var(--color-primary);
 }
 
 @media only screen and (min-width: 992px) {
   body {
     font-size: var(--font-size);
+    line-height: var(--line-height);
   }
 }
 
@@ -213,33 +216,54 @@ strong {
 }
 
 .fs-xxs {
-  font-size: var(--font-size-xxs);
-  line-height: var(--line-height-xxs);
+  font-size: var(--font-size-xxs-sm);
+  line-height: var(--line-height-xxs-sm);
 }
 
 .fs-xs {
-  font-size: var(--font-size-xs);
-  line-height: var(--line-height-xs);
+  font-size: var(--font-size-xs-sm);
+  line-height: var(--line-height-xs-sm);
 }
 
 .fs-s {
-  font-size: var(--font-size-s);
-  line-height: var(--line-height-s);
+  font-size: var(--font-size-s-sm);
+  line-height: var(--line-height-s-sm);
 }
 
 .fs-l {
-  font-size: var(--font-size-l);
-  line-height: var(--line-height-l);
+  font-size: var(--font-size-l-sm);
+  line-height: var(--line-height-l-sm);
 }
 
 .fs-xl {
-  font-size: var(--font-size-xl);
-  line-height: var(--line-height-xl);
+  font-size: var(--font-size-xl-sm);
+  line-height: var(--line-height-xl-sm);
 }
 
 @media only screen and (min-width: 992px) {
+  .fs-xxs {
+    font-size: var(--font-size-xxs);
+    line-height: var(--line-height-xxs);
+  }
+
+  .fs-xs {
+    font-size: var(--font-size-xs);
+    line-height: var(--line-height-xs);
+  }
+
   .fs-s {
-    font-size: 1.9rem;
+    font-size: var(--font-size-s);
+    line-height: var(--line-height-s);
+  }
+
+  .fs-l {
+    font-size: var(--font-size-l);
+    line-height: var(--line-height-l);
+  }
+
+  .fs-xl {
+    font-size: var(--font-size-xl);
+    line-height: var(--line-height-xl);
   }
 }
 
@@ -526,13 +550,25 @@ button.cta.active {
 /* Wrap */
 
 .wrap {
-  padding-left: calc(var(--layout-offset) - (var(--layout-gutter) / 2));
-  padding-right: calc(var(--layout-offset) - (var(--layout-gutter) / 2));
+  padding-left: calc(var(--layout-offset-sm) - (var(--layout-gutter-sm) / 2));
+  padding-right: calc(var(--layout-offset-sm) - (var(--layout-gutter-sm) / 2));
 }
 
 .wrap-full {
-  padding-left: var(--layout-offset);
-  padding-right: var(--layout-offset);
+  padding-left: var(--layout-offset-sm);
+  padding-right: var(--layout-offset-sm);
+}
+
+@media only screen and (min-width: 992px) {
+  .wrap {
+    padding-left: calc(var(--layout-offset) - (var(--layout-gutter) / 2));
+    padding-right: calc(var(--layout-offset) - (var(--layout-gutter) / 2));
+  }
+
+  .wrap-full {
+    padding-left: var(--layout-offset);
+    padding-right: var(--layout-offset);
+  }
 }
 
 /* Flex */
@@ -549,12 +585,33 @@ button.cta.active {
   justify-content: center;
 }
 
+@media only screen and (min-width: 992px) {
+  .flex-md {
+    display: flex;
+  }
+
+  .flex-md-wrap {
+    flex-wrap: wrap;
+  }
+
+  .flex-md-justify-center {
+    justify-content: center;
+  }
+}
+
 /* Columns */
 
 .col {
   width: 100%;
-  padding-left: calc(var(--layout-gutter) / 2);
-  padding-right: calc(var(--layout-gutter) / 2);
+  padding-left: calc(var(--layout-gutter-sm) / 2);
+  padding-right: calc(var(--layout-gutter-sm) / 2);
+}
+
+@media only screen and (min-width: 992px) {
+  .col {
+    padding-left: calc(var(--layout-gutter) / 2);
+    padding-right: calc(var(--layout-gutter) / 2);
+  }
 }
 
 .col-center {
@@ -606,11 +663,20 @@ button.cta.active {
 }
 
 @media only screen and (min-width: 992px) {
+  .col-md-12 {
+    width: 100%;
+  }
   .col-md-11 {
     width: 91.666%;
   }
+  .col-md-10 {
+    width: 83.333%;
+  }
   .col-md-9 {
     width: 75%;
+  }
+  .col-md-8-half {
+    width: 70.833%;
   }
   .col-md-8 {
     width: 66.666%;
@@ -618,11 +684,37 @@ button.cta.active {
   .col-md-7 {
     width: 58.333%;
   }
+  .col-md-6 {
+    width: 50%;
+  }
+  .col-md-5 {
+    width: 41.666%;
+  }
+  .col-md-4 {
+    width: 33.333%;
+  }
+  .col-md-3-half {
+    width: 29.166%;
+  }
+  .col-md-3 {
+    width: 25%;
+  }
+  .col-md-2 {
+    width: 16.666%;
+  }
+  .col-1 {
+    width: 8.333%;
+  }
 }
 
 /* Page */
 
 .page {
-  text-align: center;
-  padding-top: var(--layout-offset);
+  padding-top: var(--layout-offset-sm);
+}
+
+@media only screen and (min-width: 992px) {
+  .page {
+    padding-top: var(--layout-offset);
+  }
 }

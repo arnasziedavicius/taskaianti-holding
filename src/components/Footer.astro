@@ -5,12 +5,14 @@ const {legalTitle, legalInfo, email} = Astro.props
 .Footer {
   width: 100%;
   background-color: var(--color-grey);
-  padding-top: var(--line-height-rem);
+  overflow: hidden;
 }
 
-.Footer__col {
-  width: auto;
-  margin-right: 2rem;
+@media only screen and (min-width: 992px) {
+  .Footer__col {
+    width: auto;
+    margin-right: 2rem;
+  }
 }
 
 .Footer__col:last-child {
@@ -19,8 +21,13 @@ const {legalTitle, legalInfo, email} = Astro.props
 
 .Footer__logo-link {
   display: block;
-  /* width: 14.24rem; */
-  width: 17.8rem;
+  width: 12.4rem;
+}
+
+@media only screen and (min-width: 992px) {
+  .Footer__logo-link {
+    width: 17.8rem;
+  }
 }
 
 .Footer__logo-icon {
@@ -33,7 +40,7 @@ const {legalTitle, legalInfo, email} = Astro.props
 }
 </style>
 
-<div class="Footer wrap">
+<div class="Footer wrap page">
   <div class="col ma-b-xxl">
     <a href="/" class="Footer__logo-link">
       <svg width="182" height="45" viewBox="0 0 182 45" fill="none" xmlns="http://www.w3.org/2000/svg" class="Footer__logo-icon">
@@ -45,7 +52,7 @@ const {legalTitle, legalInfo, email} = Astro.props
     </a>
   </div>
 
-  <div class="flex fs-xxs">
+  <div class="flex-md fs-xxs">
     <div class="Footer__col col ma-b">
       &copy; {legalTitle}
     </div>

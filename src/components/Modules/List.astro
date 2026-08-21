@@ -16,11 +16,11 @@ const {title, heading, list} = Astro.props
     return <div
       class:list={[
         'ModulesList__item',
-        'flex',
-        'flex-wrap',
+        'flex-md',
+        'flex-md-wrap',
         'ma-b',
         'col-center',
-        { 'col-10': item.title },
+        { 'col-md-10': item.title },
         { 'ta-c': !item.title },
       ]}
     >
@@ -33,8 +33,8 @@ const {title, heading, list} = Astro.props
       <div class:list={[
         'ModulesList__item-text',
         'col',
-        { 'col-8-half': item.title },
-        { 'col-8': !item.title },
+        { 'col-md-8-half': item.title },
+        { 'col-md-8': !item.title },
         { 'col-center': !item.title },
       ]}>
         {item.text}
