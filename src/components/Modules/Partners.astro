@@ -1,7 +1,7 @@
 ---
 import BaseContent from '../Base/Content.astro'
 
-const {title, heading, body} = Astro.props
+const {title, heading, body, url} = Astro.props
 ---
 
 <div class="ModulesPartners wrap ma-b-xxl">
@@ -12,6 +12,6 @@ const {title, heading, body} = Astro.props
   <div class="ModulesPartners__body col col-8 col-center">
     <BaseContent value={body} class="ma-b" />
 
-    <a href="" class="button fs-xl">Užpildyk formą →</a>
+    <a href={url} class="button fs-xl">Užpildyk formą →</a>
   </div>
 </div>
