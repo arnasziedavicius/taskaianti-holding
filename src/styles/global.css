@@ -49,8 +49,10 @@
 
   --color-primary: #000000;
   --color-secondary: #ffffff;
+  --color-grey: #d3d3d3;
   --color-orange: #ff6c2f;
   --color-green: #7d7547;
+  --color-blue: #009eb4;
 
   --layout-offset: 3rem;
   --layout-gutter: 2rem;
