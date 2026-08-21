@@ -1,4 +1,5 @@
 ---
+const {legalTitle, legalInfo, email} = Astro.props
 ---
 <style>
 .Footer {
@@ -46,15 +47,15 @@
 
   <div class="flex fs-xxs">
     <div class="Footer__col col ma-b">
-      &copy; Viešoji įstaiga „Informacinės erdvės ekspertų iniciatyva“
+      &copy; {legalTitle}
     </div>
 
     <div class="Footer__col col ma-b">
-      Juridinio asmens kodas: 308009214
+      {legalInfo}
     </div>
 
     <div class="Footer__col col ma-b">
-      taskaianti@taskaianti.lt
+      <a href={`mailto:${email}`} class="cta">{email}</a>
     </div>
   </div>
 </div>

@@ -3,6 +3,9 @@ import { bodyQuery } from './helper';
 export default `{
   "settings": *[_type == "settings"][0] {
     title,
+    legalTitle,
+    legalInfo,
+    email,
     seo{
       ...,
       image{..., asset->},
