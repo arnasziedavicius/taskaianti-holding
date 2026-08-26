@@ -211,6 +211,10 @@ strong {
   text-align: center;
 }
 
+.ta-r {
+  text-align: right;
+}
+
 .fc-green {
   color: var(--color-green);
 }
@@ -601,6 +605,10 @@ button.cta.active {
 
   .flex-md-justify-center {
     justify-content: center;
+  }
+
+  .flex-md-align-end {
+    align-items: flex-end;
   }
 }
 

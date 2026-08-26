@@ -1,5 +1,5 @@
 ---
-const {legalTitle, legalInfo, email} = Astro.props
+const {legalTitle, legalInfo, email, linkedInUrl, instagramUrl} = Astro.props
 ---
 <style>
 .Footer {
@@ -9,14 +9,13 @@ const {legalTitle, legalInfo, email} = Astro.props
 }
 
 @media only screen and (min-width: 992px) {
-  .Footer__col {
-    width: auto;
-    margin-right: 2rem;
+  .Footer__col a {
+    margin-left: 3rem;
   }
-}
 
-.Footer__col:last-child {
-  margin-right: 0;
+  .Footer__col a:first-child {
+    margin-left: 0;
+  }
 }
 
 .Footer__logo-link {
@@ -52,17 +51,21 @@ const {legalTitle, legalInfo, email} = Astro.props
     </a>
   </div>
 
-  <div class="flex-md fs-xxs">
-    <div class="Footer__col col ma-b">
-      &copy; {legalTitle}
+  <div class="flex-md flex-md-wrap flex-md-align-end fs-xxs">
+    <div class="Footer__col col-md-8 col ma-b">
+      &copy; {legalTitle}, {legalInfo}
     </div>
 
-    <div class="Footer__col col ma-b">
-      {legalInfo}
-    </div>
-
-    <div class="Footer__col col ma-b">
-      <a href={`mailto:${email}`} class="cta">{email}</a>
+    <div class="Footer__col col-md-4 col ma-b ta-r">
+      {email && (
+        <a href={`mailto:${email}`} class="cta">{email}</a>
+      )}
+      {linkedInUrl && (
+        <a href={linkedInUrl} class="cta">LinkedIn</a>
+      )}
+      {instagramUrl && (
+        <a href={instagramUrl} class="cta">Instagram</a>
+      )}
     </div>
   </div>
 </div>

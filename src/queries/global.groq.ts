@@ -6,6 +6,8 @@ export default `{
     legalTitle,
     legalInfo,
     email,
+    linkedInUrl,
+    instagramUrl,
     seo{
       ...,
       image{..., asset->},
