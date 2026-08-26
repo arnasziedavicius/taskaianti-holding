@@ -8,8 +8,11 @@ const {items} = Astro.props
   left: 0;
   width: 100%;
   padding-top: var(--layout-offset);
+  padding-bottom: var(--layout-offset);
   z-index: 10;
-  transition: opacity var(--transition-duration) var(--transition-ease), transform var(--transition-duration) var(--transition-ease);
+  transition: opacity var(--transition-duration) var(--transition-ease), transform var(--transition-duration) var(--transition-ease), border-bottom-color var(--transition-duration) var(--transition-ease);
+  background-color: var(--color-secondary);
+  border-bottom: 1px solid transparent;
 }
 
 .Navigation.is-hidden {
@@ -18,9 +21,13 @@ const {items} = Astro.props
   pointer-events: none;
 }
 
+.Navigation.is-past-logo {
+  border-bottom-color: var(--color-primary);
+}
+
 .Navigation__link {
-  margin-right: 1rem;
-  margin-left: 1rem;
+  margin-right: 1.4rem;
+  margin-left: 1.4rem;
 }
 </style>
 
@@ -42,6 +49,8 @@ const {items} = Astro.props
     const update = () => {
       const y = window.scrollY
       const pastLogo = logo ? logo.getBoundingClientRect().bottom <= 0 : y > 0
+
+      nav.classList.toggle('is-past-logo', pastLogo)
 
       if (!pastLogo || y <= lastY) {
         nav.classList.remove('is-hidden')
