@@ -12,6 +12,8 @@ const {title, heading, body, url} = Astro.props
   <div class="ModulesVolunteers__body col col-md-8 col-center">
     <BaseContent value={body} class="ma-b" />
 
-    <a href={url} class="button fs-xl">Užpildyk formą →</a>
+    {url && (
+      <a href={url} class="button fs-xl">Užpildyk formą →</a>
+    )}
   </div>
 </div>
