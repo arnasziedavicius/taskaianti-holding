@@ -1,0 +1,57 @@
+---
+import ModulesText from './Text.astro'
+import ModulesImage from './Image.astro'
+import ModulesList from './List.astro'
+import ModulesVolunteers from './Volunteers.astro'
+import ModulesPartners from './Partners.astro'
+
+interface Module {
+  _type: string
+  _key?: string
+  [key: string]: unknown
+}
+
+interface Props {
+  modules: Module[]
+}
+
+const { modules } = Astro.props
+
+const moduleComponents: Record<string, any> = {
+  'module.text': ModulesText,
+  'module.image': ModulesImage,
+  'module.list': ModulesList,
+  'module.volunteers': ModulesVolunteers,
+  'module.partners': ModulesPartners,
+}
+---
+
+<style>
+  .Modules__module {
+    scroll-margin-top: calc(var(--line-height-rem-sm) * 4);
+  }
+
+  @media only screen and (min-width: 992px) {
+    .Modules__module {
+      scroll-margin-top: calc(var(--line-height-rem) * 4);
+    }
+  }
+</style>
+
+<div class="Modules ma-b-xxxl">
+  {modules.map((module) => {
+    const Component = moduleComponents[module._type]
+    if (!Component) return null
+
+    const { _type, slug, ...props } = module
+    const id = typeof slug === 'object' && slug && 'current' in slug
+      ? (slug as { current?: string }).current
+      : undefined
+
+    return (
+      <div id={id} class="Modules__module">
+        <Component {...props} />
+      </div>
+    )
+  })}
+</div>

@@ -1,0 +1,15 @@
+---
+import BaseContent from '../Base/Content.astro'
+
+const {title, heading, body} = Astro.props
+---
+
+<div class="ModulesText wrap ma-b-xxl ta-c">
+  <div class="ModulesText__heading-wrap col ma-b">
+    <h2 class="tt-u">{heading || title}</h2>
+  </div>
+
+  <div class="ModulesText__body col col-md-8 col-center">
+    <BaseContent value={body} />
+  </div>
+</div>

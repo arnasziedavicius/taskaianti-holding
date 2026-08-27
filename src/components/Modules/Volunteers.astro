@@ -1,0 +1,19 @@
+---
+import BaseContent from '../Base/Content.astro'
+
+const {title, heading, body, url} = Astro.props
+---
+
+<div class="ModulesVolunteers wrap ma-b-xxl">
+  <div class="ModulesVolunteers__heading-wrap col ma-b ta-c">
+    <h2 class="tt-u">{heading || title}</h2>
+  </div>
+
+  <div class="ModulesVolunteers__body col col-md-8 col-center">
+    <BaseContent value={body} class="ma-b" />
+
+    {url && (
+      <a href={url} class="button fs-xl">Užpildyk formą →</a>
+    )}
+  </div>
+</div>

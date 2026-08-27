@@ -1,0 +1,19 @@
+---
+import type {MarkProps} from 'astro-portabletext/types'
+
+type MarkDef = {
+  path?: string
+  hash?: string
+}
+
+export type Props = MarkProps<MarkDef>
+
+const {node} = Astro.props
+const path = node.markDef?.path ?? '/'
+const hash = node.markDef?.hash
+const href = hash ? `${path}#${hash}` : path
+---
+
+<a href={href} class="cta">
+  <slot />
+</a>

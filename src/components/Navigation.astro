@@ -1,0 +1,67 @@
+---
+const {items} = Astro.props
+---
+<style>
+.Navigation {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-top: var(--layout-offset);
+  padding-bottom: var(--layout-offset);
+  z-index: 10;
+  transition: opacity var(--transition-duration) var(--transition-ease), transform var(--transition-duration) var(--transition-ease), border-bottom-color var(--transition-duration) var(--transition-ease);
+  background-color: var(--color-secondary);
+  border-bottom: 1px solid transparent;
+}
+
+.Navigation.is-hidden {
+  opacity: 0;
+  transform: translateY(-100%);
+  pointer-events: none;
+}
+
+.Navigation.is-past-logo {
+  border-bottom-color: var(--color-primary);
+}
+
+.Navigation__link {
+  margin-right: 1.4rem;
+  margin-left: 1.4rem;
+}
+</style>
+
+<nav class="Navigation wrap-full fs-s tt-u ta-c hidden-mobile" data-navigation>
+  {items.map((item: any) => (
+    <a href={item.slug?.current ? `#${item.slug.current}` : undefined} class="Navigation__link cta">
+      {item.title}
+    </a>
+  ))}
+</nav>
+
+<script>
+  const nav = document.querySelector('[data-navigation]')
+  const logo = document.querySelector('.PageHome__logo-wrap')
+
+  if (nav) {
+    let lastY = window.scrollY
+
+    const update = () => {
+      const y = window.scrollY
+      const pastLogo = logo ? logo.getBoundingClientRect().bottom <= 0 : y > 0
+
+      nav.classList.toggle('is-past-logo', pastLogo)
+
+      if (!pastLogo || y <= lastY) {
+        nav.classList.remove('is-hidden')
+      } else {
+        nav.classList.add('is-hidden')
+      }
+
+      lastY = y
+    }
+
+    window.addEventListener('scroll', update, { passive: true })
+    update()
+  }
+</script>

@@ -1,0 +1,24 @@
+---
+import {PortableText} from 'astro-portabletext'
+import AnnotationLinkInternal from './marks/AnnotationLinkInternal.astro'
+import AnnotationLinkExternal from './marks/AnnotationLinkExternal.astro'
+import AnnotationLinkDownload from './marks/AnnotationLinkDownload.astro'
+import DecoratorHighlight from './marks/DecoratorHighlight.astro'
+import DecoratorColor from './marks/DecoratorColor.astro'
+
+const {value, class: className} = Astro.props
+
+const components = {
+  mark: {
+    annotationLinkInternal: AnnotationLinkInternal,
+    annotationLinkExternal: AnnotationLinkExternal,
+    annotationLinkDownload: AnnotationLinkDownload,
+    highlight: DecoratorHighlight,
+    color: DecoratorColor,
+  },
+}
+---
+
+<div class:list={['BaseContent', 'text', className]}>
+  <PortableText value={value} components={components} />
+</div>

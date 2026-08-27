@@ -1,0 +1,28 @@
+---
+import BaseLogo from './Base/Logo.astro'
+
+const {title} = Astro.props
+---
+<style>
+.Logo {
+  width: 12.4rem;
+}
+
+@media only screen and (min-width: 992px) {
+  .Logo {
+    width: 17.8rem;
+  }
+}
+
+.Logo__link {
+  display: block;
+}
+</style>
+
+<h1 class="Logo">
+  <a href="/" class="Logo__link">
+    <BaseLogo />
+
+    <span class="hidden-visually">{{ title }}</span>
+  </a>
+</h1>

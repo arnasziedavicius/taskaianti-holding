@@ -1,41 +1,57 @@
 ---
+import { sanityClient } from "sanity:client";
+import query from '../queries/global.groq';
 import DefaultLayout from '../layouts/Default.astro';
+import Logo from '../components/Logo.astro';
+import Navigation from '../components/Navigation.astro';
+import BaseContent from '../components/Base/Content.astro';
+import Modules from '../components/Modules/Modules.astro';
+import Footer from '../components/Footer.astro';
 
-const siteTitle = 'Taškai ant i';
-const email = 'kontaktai@taskaianti.org';
-const url = 'https://www.taskaianti.org/';
-const description = 'Pilietinė iniciatyva vienijanti įvairių sričių profesionalus ir siekianti stiprinti atsparumą dezinformacijai Lietuvoje.'
+const url = import.meta.env.APP_URL;
 
-// Structured data for the person
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": siteTitle,
-  "jobTitle": "Pilietinė iniciatyva",
-  "description": description,
-  "email": email,
-  "url": url
-};
+const data = await sanityClient.fetch(query);
+const { settings, home } = data;
 ---
 <style>
+.PageHome__logo-wrap {
+  padding-top: var(--layout-offset);
+  margin-bottom: calc(var(--line-height-rem) - var(--layout-offset));
+}
+
+.PageHome {
+  padding-top: calc(var(--line-height-rem-sm) * 4 - var(--layout-offset));
+}
+
+@media only screen and (min-width: 992px) {
+  .PageHome {
+    padding-top: calc(var(--line-height-rem) * 4);
+  }
+}
 </style>
 
 <DefaultLayout
-  title={siteTitle}
-  description={description}
-	url={url}
+  title={settings?.title}
+  url={url}
+  seo={settings?.seo}
 >
-  <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
-
-  <div class="PageHome page">
-		<div class="col col-md-7 col-center text ma-b">
-			<h1>{siteTitle}</h1>
-			<p>{description}</p>
-			<p><a href="mailto:kontaktai@taskaianti.org">{email}</a></p>
-		</div>
+  <div class="PageHome__logo-wrap flex flex-justify-center wrap-full ma-b">
+    <Logo title={settings?.title} />
   </div>
+  <Navigation items={home?.navigation ?? []} />
+
+  <div class="PageHome pa-t-xxxxxl">
+    <div class="PageHome__intro-text wrap ma-b-xxl ta-c">
+      <div class="col col-md-9 col-center fs-l">
+        <BaseContent value={home?.introText} />
+      </div>
+    </div>
+
+    <Modules modules={home?.modules ?? []} />
+  </div>
+
+  <Footer legalTitle={settings?.legalTitle} legalInfo={settings?.legalInfo} email={settings?.email} linkedInUrl={settings?.linkedInUrl} instagramUrl={settings?.instagramUrl} />
 </DefaultLayout>
 
 <script>
-
 </script>
